@@ -40,15 +40,13 @@ After setting up the Nix shell and entering the Agda development environment, yo
 agda --compile hello-world.agda --compile-dir=./build
 ```
 
-Replace `hello-world.agda` with the name of your main Agda file (e.g., Main.agda). This command will compile your Agda code and place the compiled output in the `./build` directory.
+This command will compile your Agda code and place the compiled output in the `./build` directory.
 
 After the compilation is finished, you can run the compiled output from the build directory:
 
 ```sh
-./build/Main
+./build/hello-world
 ```
-
-Replace Main with the name of the compiled output that corresponds to your main Agda file.
 
 # Learning Agda
 

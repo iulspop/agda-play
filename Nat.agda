@@ -3,6 +3,7 @@ open import Agda.Builtin.Bool
 data Nat : Set where
   zero : Nat
   suc : Nat → Nat
+{-# BUILTIN NATURAL Nat #-}
 
 _+_ : Nat → Nat → Nat
 zero + y = y
@@ -18,8 +19,6 @@ x       - zero  = x
 -- (suc zero) - (suc zero)
 -- zero - zero
 -- zero
-
-{-# BUILTIN NATURAL Nat #-}
 
 not : Bool → Bool
 not false = true
@@ -66,12 +65,11 @@ snd (x , y) = y
 
 data Vec (A : Set) : Nat → Set where
   [] : Vec A 0
-  _:::_ : {n : Nat} → A → Vec A n → Vec A (suc n)
-infixr 5 _:::_
+  _::_ : {n : Nat} → A → Vec A n → Vec A (suc n)
 
 downFrom : (n : Nat) → Vec Nat n
 downFrom zero = []
-downFrom (suc x) = x ::: downFrom x
+downFrom (suc x) = x :: downFrom x
 
 head : {A : Set}{n : Nat} → Vec A (suc n) → A
-head (x ::: xs) = x
+head (x :: xs) = x
